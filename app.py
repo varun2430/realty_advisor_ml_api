@@ -51,6 +51,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+def getStatus():
+    return {"status": "OK"}
+
 @app.post("/predict_price/")
 async def predict(features: HouseFeatures):
     try:
